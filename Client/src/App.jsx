@@ -6,7 +6,7 @@ import './App.css'
 import { useState } from 'react'
 
 //components
-import Login from './components/Login/Login'
+import Login from './components/Login/Login.jsx'
 
 function App() {
 
