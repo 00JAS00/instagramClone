@@ -4,9 +4,9 @@ import './App.css'
 function App() {
 
   return (
-    <>
-      <p>hola</p>
-    </>
+    <div className='flex justify-center'>
+      <p className='text-3xl font-bold underline'>hola</p>
+    </div>
   )
 }
 
