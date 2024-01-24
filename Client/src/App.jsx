@@ -1,12 +1,19 @@
-import { useState } from 'react'
+
+import {Routes, Route} from 'react-router-dom'
+
+//? hooks
 import './App.css'
+import { useState } from 'react'
+
+//components
+import Login from './components/Login/Login'
 
 function App() {
 
   return (
-    <div className='flex justify-center'>
-      <p className='text-3xl font-bold underline'>hola</p>
-    </div>
+    <main>
+      <Login/>
+    </main>
   )
 }
 
