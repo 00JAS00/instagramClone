@@ -12,7 +12,12 @@ function App() {
 
   return (
     <main>
-      <Login/>
+      <Routes>
+
+        <Route path='/' element={<Login/>}/>
+
+
+      </Routes>
     </main>
   )
 }
