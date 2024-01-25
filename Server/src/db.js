@@ -30,6 +30,26 @@ followersModel(sequelize)
 //model and relations
 const {User, Post, Comment, Like, Followers} = sequelize.models
 
+//1 relation between users and post
+//user can have many post but one post belongs to one user
+User.hasMany(Post)
+Post.belongsTo(User)
+
+//2- relation between Post and comments
+// a post can have many comments, but a comment belongs to one post
+Post.hasMany(Comment)
+Comment.belongsTo(Post)
+
+//3- relation between users and followers
+// a user can have many followers and also follow many users
+User.belongsToMany(User, {as: 'Followers',through:'Followers', foreignKey:'userId'})
+User.belongsToMany(User, {as: 'Following', through: 'Followers', foreignKey:'followerId'})
+
+//relation between posts and likes
+//a post can have many likes, but 1 like belongs to one post
+Post.hasMany(Like)
+Like.belongsTo(Post)
+
 module.exports = {
     User,
     Post,
