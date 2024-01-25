@@ -7,6 +7,9 @@ const path = require('path')
 //models
 const userModel = require('./models/User')
 const postModel = require('./models/Post')
+const commentModel = require('./models/Comment')
+const likeModel = require('./models/Like')
+const followersModel = require('./models/Followers')
 
 const {
     DB_USER, DB_PASSWORD, DB_HOST, POSTGRES_URL,
@@ -20,12 +23,18 @@ const sequelize = new Sequelize(
 //executing models
 userModel(sequelize)
 postModel(sequelize)
+commentModel(sequelize)
+likeModel(sequelize)
+followersModel(sequelize)
 
 //model and relations
-const {User, Post} = sequelize.models
+const {User, Post, Comment, Like, Followers} = sequelize.models
 
 module.exports = {
     User,
     Post,
+    Comment,
+    Like,
+    Followers,
     conn: sequelize
 }
