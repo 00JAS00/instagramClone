@@ -6,6 +6,7 @@ const path = require('path')
 
 //models
 const userModel = require('./models/User')
+const postModel = require('./models/Post')
 
 const {
     DB_USER, DB_PASSWORD, DB_HOST, POSTGRES_URL,
@@ -18,11 +19,13 @@ const sequelize = new Sequelize(
 
 //executing models
 userModel(sequelize)
+postModel(sequelize)
 
 //model and relations
-const {User} = sequelize.models
+const {User, Post} = sequelize.models
 
 module.exports = {
     User,
+    Post,
     conn: sequelize
 }
