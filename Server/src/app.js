@@ -2,7 +2,7 @@ const express = require('express')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
-// const routes = require('./routes/index')
+const routes = require('./routes/index')
 
 const server = express()
 
@@ -17,6 +17,8 @@ server.use((req, res, next) => {
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
   next();
 });
+
+server.use('/instaclone', routes);
 
 
 // Error catching endware.
