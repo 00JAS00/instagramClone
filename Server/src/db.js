@@ -42,8 +42,8 @@ Comment.belongsTo(Post)
 
 //3- relation between users and followers
 // a user can have many followers and also follow many users
-User.belongsToMany(User, {as: 'Followers',through:'Followers', foreignKey:'userId'})
-User.belongsToMany(User, {as: 'Following', through: 'Followers', foreignKey:'followerId'})
+User.belongsToMany(User, {as: 'Followers',through:'userFollowers', foreignKey:'userId'})
+User.belongsToMany(User, {as: 'Following', through: 'userFollowing', foreignKey:'followerId'})
 
 //relation between posts and likes
 //a post can have many likes, but 1 like belongs to one post
