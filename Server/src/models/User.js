@@ -5,7 +5,7 @@ module.exports = (sequelize)=>{
         id: {
             type: DataTypes.UUID,
             primaryKey: true,
-            defaltValue: DataTypes.UUIDV4,
+            defaultValue: DataTypes.UUIDV4,
             allowNull: false,
         },
         username:{
@@ -24,7 +24,7 @@ module.exports = (sequelize)=>{
         },
         createdAt: {
             type: DataTypes.DATE,
-            defaltValue: DataTypes.NOW,
+            defaultValue: DataTypes.NOW,
             allowNull:false,
         }
 
