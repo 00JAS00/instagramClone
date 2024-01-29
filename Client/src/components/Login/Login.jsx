@@ -1,10 +1,22 @@
 //? hooks
 import { useState, useEffect } from "react"
 
+import {useDispatch, useSelector} from 'react-redux'
+
+// REDUX ACTIONS
+import { getLogin } from "../../redux/actions/loginActions"
+
 import picksTagramLogo from "../../assets/NicePng_instagram-button-png_723402.png"
 import { Link } from "react-router-dom"
 // development
 const Login = ()=>{
+
+  const dispatch = useDispatch()
+
+  const [userData, setUserData] = useState({
+    email: '',
+    password: '',
+  })
 
     return(
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
