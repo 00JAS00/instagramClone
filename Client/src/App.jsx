@@ -7,6 +7,7 @@ import './App.css'
 
 //components
 import Login from './components/Login/Login'
+import SignUp from './components/SingUp/SingUp'
 
 function App() {
 
@@ -15,8 +16,7 @@ function App() {
       <Routes>
 
         <Route path='/' element={<Login/>}/>
-
-
+        <Route path='/singup' element={<SignUp/>}/>
       </Routes>
     </main>
   )
