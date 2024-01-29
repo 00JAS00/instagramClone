@@ -2,7 +2,7 @@ const {User} =  require('../db')
 
 const Login = async (req,res)=>{
     try {
-        const {email, password} = req.body
+        const {email, password} = req.query
         if(!email || !password) return res.status(400).send("Email or password not recieved")
 
         const user = await User.findOne({
