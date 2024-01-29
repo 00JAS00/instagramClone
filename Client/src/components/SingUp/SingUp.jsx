@@ -1,38 +1,59 @@
+import style from './SingUp.module.css'
+import instagramLogo from '../../assets/Logo-Instagram.webp'
+
 const SignUp= ()=>{
     return(
-    <form method="post">
-        <span>Regístrate para ver fotos y videos de tus amigos.</span>
-        
-        <button type="button">Iniciar sesión con Facebook</button>
-        
-        <label>
-            <span>Número de celular o correo electrónico</span>
-            <input type="text" name="emailOrPhone" aria-label="Número de celular o correo electrónico" />
-        </label>
-        
-        <label>
-            <span>Nombre completo</span>
-            <input type="text" name="fullName" aria-label="Nombre completo"  />
-        </label>
-        
-        <label>
-            <span>Nombre de usuario</span>
-            <input type="text" name="username" aria-label="Nombre de usuario"   />
-        </label>
-        
-        <label>
-            <span>Contraseña</span>
-            <input type="password" name="password" aria-label="Contraseña"   />
-        </label>
-        
-        <p>
-            Es posible que las personas que usan nuestro servicio hayan subido tu información de contacto a InstagramClone. 
-            Al registrarte, aceptas nuestras Condiciones,la Política de privacidad y la Política de cookies. 
-        </p>
-        
-        <button disabled="" type="submit">Registrarte</button>
-    </form>
+    <div className={style.container}>
+        <div className={style.logoContainer}>
+                <img src={instagramLogo} alt="" className={style.logo}/>
+            </div>
+        <form className={style.form}>
+            <div className={style.labels}>
+                <span className={style.subtitle}>Regístrate para ver fotos y videos  de tus amigos.</span>
+            </div>
+            <div className={style.labels}>
+                <a  className={style.btnFacebook}>Iniciar sesión con Facebook</a>
+            </div>
+            <div className={style.labels}>
+                <div className={style.orContainer}>
+                    <div className={style.lines}></div>
+                    <div className={style.orText}>o</div>
+                    <div className={style.lines}></div>
+                </div>
+            </div>
+            <div className={style.labels}>
+                <label>
+                    
+                    <input className={style.inputs}type="text" name="emailOrPhone" placeholder="Número de celular o correo electrónico" />
+                </label>
+            </div>
+            <div className={style.labels}>
+                <label>
+                    
+                    <input className={style.inputs}type="text" name="fullName" placeholder="Nombre completo"  />
+                </label>
+            </div>
+            <div className={style.labels}>
+                <label>
+                    
+                    <input className={style.inputs}type="text" name="username" placeholder="Nombre de usuario"   />
+                </label>
+            </div>
+            <div className={style.labels}>
+            <label>
+                <input className={style.inputs}type="password" name="password" placeholder="Contraseña"   />
+            </label>
+            </div>
 
+            <div className={style.labels}>
+                <p className={style.terms}>
+                    Es posible que las personas que usan nuestro servicio hayan subido tu información de contacto a InstagramClone. <br /> <br />
+                    Al registrarte, aceptas nuestras Condiciones,la Política de privacidad y la Política de cookies. 
+                </p>
+            </div>
+            <a className={style.btnSingup}>Registrarte</a>
+        </form>
+    </div>
         )
 }
 export default SignUp
