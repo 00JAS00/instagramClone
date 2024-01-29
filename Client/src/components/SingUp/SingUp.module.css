@@ -1,7 +1,7 @@
 .container{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     width: 22rem;
-    height: 38.875rem;
+    
     border: 1px solid rgb(219,219,219);
     border-radius: 1px;
     margin: 10px auto;
@@ -21,6 +21,7 @@
     justify-content: space-around;
     width: 16.875rem;
     height: 100%;
+    gap: 0.5rem;
 }
 .labels{
     width: 100%;
@@ -36,11 +37,16 @@
 .btnFacebook{
     display:inline-block;
     text-align: center;
+    font-weight: 500;
+    font-size: 14px;
     padding:7px 16px;
-    border-radius: 4px;
-    background-color: #1877f2;
+    border-radius: 0.7rem;
+    background-color: rgb(0, 149, 246);
     color: white;
     width: 100%;
+}
+.btnFacebook:hover{
+    background-color: rgb(0, 113, 214);
 }
 .orContainer{
     display: flex;
@@ -72,7 +78,7 @@
     padding:7px 16px;
     font-size:medium;
     font-weight: bold;
-    border-radius: 4px;
+    border-radius: 0.7rem;
     background-color: rgb(76,181,249);
     color: white;
     text-align: center;
