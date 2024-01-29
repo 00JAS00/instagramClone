@@ -1,3 +1,6 @@
+//? hooks
+import { useState, useEffect } from "react"
+
 import picksTagramLogo from "../../assets/NicePng_instagram-button-png_723402.png"
 import { Link } from "react-router-dom"
 // development
