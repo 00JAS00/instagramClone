@@ -1,10 +1,45 @@
 //? hooks
 import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
+
+import {useDispatch, useSelector,} from 'react-redux'
+
+// REDUX ACTIONS
+import { getLogin } from "../../redux/actions/loginActions"
 
 import picksTagramLogo from "../../assets/NicePng_instagram-button-png_723402.png"
 import { Link } from "react-router-dom"
 // development
 const Login = ()=>{
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const isAuth = useSelector(state=> state.login.isAuth)
+  const errorForm = useSelector(state=> state.login.errorForm)
+  
+  // console.log(isAuth)
+  // console.log(errorForm)
+
+  const [userData, setUserData] = useState({
+    email: '',
+    password: '',
+  })
+
+  const handleChange = (event)=>{
+    setUserData({
+      ...userData,
+      [event.target.name]: event.target.value
+    })
+  }
+
+  const handleSubmit = (e)=>{
+    e.preventDefault()
+    console.log(userData)
+    dispatch(getLogin(userData))
+
+    //we dont need this for our development mode
+    // if(isAuth === true) navigate('/home')
+  }
 
     return(
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -20,13 +55,14 @@ const Login = ()=>{
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" action="#" method="POST">
+          <form onSubmit={handleSubmit} className="space-y-6" action="#" method="POST">
             <div>
               <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                 Email address
               </label>
               <div className="mt-2">
                 <input
+                onChange={handleChange}
                   id="email"
                   name="email"
                   type="email"
@@ -50,6 +86,7 @@ const Login = ()=>{
               </div>
               <div className="mt-2">
                 <input
+                onChange={handleChange}
                   id="password"
                   name="password"
                   type="password"
@@ -63,10 +100,12 @@ const Login = ()=>{
             <div>
               <button
                 type="submit"
+                disabled={!userData.email || !userData.password}
                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Sign in
               </button>
+              <p className="text-red-500">{errorForm}</p>
             </div>
             <div>
               <p className="mt-10 text-center text-sm text-gray-500">

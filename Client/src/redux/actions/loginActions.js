@@ -2,17 +2,31 @@ import axios from 'axios'
 
 import {
 LOGIN,
-LOGOUT
+LOGOUT,
+ERRORFORM
 } from '../action_types/loginActionTypes'
 
 const URL = "http://localhost:3001/instaclone/"
 
-export const getLogin = (user,password) => async (dispatch)=>{
+export const getLogin = ({email,password}) => async (dispatch)=>{
     try {
-        const response = await axios(`${URL}`)
+        const response = await axios(`${URL}?email=${email}&password=${password}`)
         const {data} = response
-        console.log(data)
+        // data = {access: true}
+
+        if(data.access === true){
+            dispatch({
+                type: LOGIN,
+                payload: data.access,
+            })
+        }
+        
     } catch (error) {
-        window.alert(error)
+        console.log(error)
+        dispatch({
+            type: ERRORFORM,
+            //within response.data from the error the backend sent us the possible wrong answers
+            payload: error.response.data
+        })
     }
 }
