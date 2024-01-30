@@ -13,11 +13,15 @@ export const getLogin = ({email,password}) => async (dispatch)=>{
         const {data} = response
         console.log(data)
 
-        dispatch({
-            type: LOGIN,
-            payload: data,
-        })
+        if(data.access === true){
+            dispatch({
+                type: LOGIN,
+                payload: data,
+            })
+        }
+        
     } catch (error) {
-        window.alert(error)
+        console.log(error)
+        window.alert(error.response.data)
     }
 }
