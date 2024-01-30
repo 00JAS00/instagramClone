@@ -16,8 +16,9 @@ const Login = ()=>{
   const navigate = useNavigate()
   const isAuth = useSelector(state=> state.login.isAuth)
   const errorForm = useSelector(state=> state.login.errorForm)
-  console.log(isAuth)
-  console.log(errorForm)
+  
+  // console.log(isAuth)
+  // console.log(errorForm)
 
   const [userData, setUserData] = useState({
     email: '',
@@ -104,6 +105,7 @@ const Login = ()=>{
               >
                 Sign in
               </button>
+              <p className="text-red-500">{errorForm}</p>
             </div>
             <div>
               <p className="mt-10 text-center text-sm text-gray-500">

@@ -15,7 +15,8 @@ const loginReducer = (state = initailState, action)=>{
         case LOGIN:
             return {
                 ...state,
-                isAuth: action.payload
+                isAuth: action.payload,
+                errorForm: ''
             }
 
         case ERRORFORM:
