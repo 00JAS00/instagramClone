@@ -1,11 +1,13 @@
 
 import { 
-LOGIN,
+    ERRORFORM,
+LOGIN, LOGOUT,
 
 } from "../action_types/loginActionTypes"
 
 const initailState = {
-    isAuth: null
+    isAuth: null,
+    errorForm: ''
 }
 
 const loginReducer = (state = initailState, action)=>{
@@ -13,7 +15,13 @@ const loginReducer = (state = initailState, action)=>{
         case LOGIN:
             return {
                 ...state,
-                isAuth: true
+                isAuth: action.payload
+            }
+
+        case ERRORFORM:
+            return {
+                ...state,
+                errorForm: action.payload
             }
         default:
             return{

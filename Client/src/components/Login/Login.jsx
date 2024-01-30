@@ -15,7 +15,9 @@ const Login = ()=>{
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const isAuth = useSelector(state=> state.login.isAuth)
+  const errorForm = useSelector(state=> state.login.errorForm)
   console.log(isAuth)
+  console.log(errorForm)
 
   const [userData, setUserData] = useState({
     email: '',
@@ -97,6 +99,7 @@ const Login = ()=>{
             <div>
               <button
                 type="submit"
+                disabled={!userData.email || !userData.password}
                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Sign in
