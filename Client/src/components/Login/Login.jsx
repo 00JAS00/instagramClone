@@ -1,7 +1,8 @@
 //? hooks
 import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 
-import {useDispatch, useSelector} from 'react-redux'
+import {useDispatch, useSelector,} from 'react-redux'
 
 // REDUX ACTIONS
 import { getLogin } from "../../redux/actions/loginActions"
@@ -12,6 +13,7 @@ import { Link } from "react-router-dom"
 const Login = ()=>{
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const isAuth = useSelector(state=> state.login.isAuth)
   console.log(isAuth)
 
@@ -31,6 +33,9 @@ const Login = ()=>{
     e.preventDefault()
     console.log(userData)
     dispatch(getLogin(userData))
+
+    //we dont need this for our development mode
+    // if(isAuth === true) navigate('/home')
   }
 
     return(
