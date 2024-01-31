@@ -1,0 +1,7 @@
+.sidebarContainer {
+    background-color: rgb(59, 55, 55);
+}
+.sidebarList{
+    display: flex;
+    justify-content: space-evenly;
+}
