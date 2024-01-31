@@ -30,6 +30,10 @@ module.exports = (sequelize)=>{
             type: DataTypes.DATE,
             defaultValue: DataTypes.NOW,
             allowNull:false,
+        },
+        picture: {
+            type: DataTypes.STRING,
+            allowNull: false,
         }
 
     },{timestamps: false})
