@@ -1,5 +1,12 @@
 .sidebarContainer {
+    display: flex;
     background-color: rgb(59, 55, 55);
+    height: 40px;
+
+.navbar{
+    align-self: center;
+    width: 100%;
+}
 }
 .sidebarList{
     display: flex;
