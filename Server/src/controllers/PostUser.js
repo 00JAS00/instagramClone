@@ -2,8 +2,8 @@ const {User} = require('../db')
 
 const postUser = async(req,res)=>{
     try {
-        const {username,email, password} = req.body
-        if(!email || !password || !username) return res.status(400).send("Empty inputs")
+        const {username,email, password, name} = req.body
+        if(!email || !password || !username || !name) return res.status(400).send("Empty inputs")
 
         const existingUser = await User.findOne({
             where: {
@@ -15,7 +15,7 @@ const postUser = async(req,res)=>{
         if(existingUser) return res.status(400).send("Email already registered")
 
         const newUser = await User.create({
-
+                name,
                 email, 
                 password,
                 username

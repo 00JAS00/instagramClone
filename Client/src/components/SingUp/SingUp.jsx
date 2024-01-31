@@ -2,6 +2,9 @@ import style from './SingUp.module.css'
 import instagramLogo from '../../assets/Logo-Instagram.webp'
 
 const SignUp= ()=>{
+
+
+    
     return(
     <div className={style.container}>
         <div className={style.logoContainer}>

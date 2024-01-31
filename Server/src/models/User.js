@@ -8,6 +8,10 @@ module.exports = (sequelize)=>{
             defaultValue: DataTypes.UUIDV4,
             allowNull: false,
         },
+        name:{
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         username:{
             type: DataTypes.STRING,
             allowNull: false,
