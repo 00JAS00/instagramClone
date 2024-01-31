@@ -2,8 +2,8 @@ const {User} = require('../db')
 
 const postUser = async(req,res)=>{
     try {
-        const {username,email, password, name} = req.body
-        if(!email || !password || !username || !name) return res.status(400).send("Empty inputs")
+        const {username,email, password, name, picture} = req.body
+        if(!email || !password || !username || !name ||!picture) return res.status(400).send("Empty inputs")
 
         const existingUser = await User.findOne({
             where: {
@@ -18,7 +18,8 @@ const postUser = async(req,res)=>{
                 name,
                 email, 
                 password,
-                username
+                username,
+                picture
             
         })
         res.status(201).json(newUser)
