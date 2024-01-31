@@ -10,6 +10,7 @@ const router = Router()
 // router.use("/followers", followersRoutes)
 
 const PostUser = require('../controllers/PostUser')
+const createPost = require('../controllers/CreatePost')
 const Login = require('../controllers/Login')
 
 //get
@@ -17,6 +18,7 @@ router.get('/', Login)
 
 //post
 router.post('/createuser', PostUser)
+router.post('/home', createPost)
 
 
 module.exports = router
