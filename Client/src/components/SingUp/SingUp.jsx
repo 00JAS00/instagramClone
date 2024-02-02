@@ -1,14 +1,21 @@
 import style from './SingUp.module.css'
 import instagramLogo from '../../assets/Logo-Instagram.webp'
 
-const SignUp= ()=>{
+//redux
+import {singUp} from '../../redux/actions/userActions'
 
+//* react-redux
+import {useSelector, useDispatch} from 'react-redux'
+
+const SignUp= ()=>{
+    const user = useSelector(state=> state.user)
+    console.log(user)
 
     
     return(
     <div className={style.container}>
         <div className={style.logoContainer}>
-                <img src={instagramLogo} alt="" className={style.logo}/>
+                <img src={instagramLogo} alt="app logo" className={style.logo}/>
             </div>
         <form className={style.form}>
             <div className={style.labels}>
