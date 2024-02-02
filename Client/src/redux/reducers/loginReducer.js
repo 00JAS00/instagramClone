@@ -1,8 +1,8 @@
 
 import { 
-    ERRORFORM,
-LOGIN, LOGOUT,
-
+ERRORFORM,
+LOGIN, 
+LOGOUT,
 } from "../action_types/loginActionTypes"
 
 const initailState = {
@@ -24,6 +24,8 @@ const loginReducer = (state = initailState, action)=>{
                 ...state,
                 errorForm: action.payload
             }
+
+
         default:
             return{
                 ...state

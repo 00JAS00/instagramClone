@@ -3,7 +3,7 @@ import axios from 'axios'
 import {
 LOGIN,
 LOGOUT,
-ERRORFORM
+ERRORFORM,
 } from '../action_types/loginActionTypes'
 
 const URL = "http://localhost:3001/instaclone/"
